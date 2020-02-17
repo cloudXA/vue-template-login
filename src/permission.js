@@ -1,3 +1,4 @@
+
 import router from './router'
 import store from './store'
 import { Message } from 'element-ui'
@@ -26,6 +27,7 @@ router.beforeEach(async(to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
+        alert('before enter to router link')
       const hasGetUserInfo = store.getters.name
       if (hasGetUserInfo) {
         next()
