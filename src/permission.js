@@ -11,6 +11,7 @@ NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login'] // no redirect whitelist
 
+// 全局导航前置守卫
 router.beforeEach(async(to, from, next) => {
   // start progress bar
   NProgress.start()
@@ -27,7 +28,6 @@ router.beforeEach(async(to, from, next) => {
       next({ path: '/' })
       NProgress.done()
     } else {
-        alert('before enter to router link')
       const hasGetUserInfo = store.getters.name
       if (hasGetUserInfo) {
         next()

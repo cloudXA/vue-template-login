@@ -1,11 +1,16 @@
 <template>
   <div :class="classObj" class="app-wrapper">
+    <!-- 当为mobile模式，并且opened为true的时候，才能够展开 -->
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
+    <!-- 左边的侧边栏 -->
     <sidebar class="sidebar-container" />
+    <!-- 右边的app-main  -->
     <div class="main-container">
+      <!-- 上面的导航栏 -->
       <div :class="{'fixed-header':fixedHeader}">
         <navbar />
       </div>
+      <!-- 下面的app-main  -->
       <app-main />
     </div>
   </div>

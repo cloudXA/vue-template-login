@@ -90,6 +90,10 @@ export default {
       } else {
         this.passwordType = 'password'
       }
+      // 上述语句执行后执行下面 
+      /**
+       * @description 返回一个promise，返回后输入框聚焦
+       */
       this.$nextTick().then(() => this.$refs.password.focus())
       // this.$nextTick(() => {
       //   this.$refs.password.focus()
@@ -105,12 +109,12 @@ export default {
             this.loading = false 
           })
         } else {
-          alert('valid false',valid)
+          return false
         }
       })
     }
   },
-  // 开始进入'/'然后跳转到'/login',路由对象变化，触发handler函数
+  // 开始进入'/'然后跳转到'/login',路由对象变化，触发handler函数，监听$route对象对象的变化，变化后执行内的handler
   watch: {
     $route: {
       handler: function(route) {
