@@ -90,6 +90,42 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/table',
+    component: Layout,
+    redirect: '/table/complex-table',
+    name: 'Table',
+    meta: {
+      title: 'Table',
+      icon: 'table'
+    },
+    children: [
+      {
+        path: 'dynamci-table',
+        component: () => import('@/views/table/dynamic-table'),
+        name: 'DynamciTable',
+        meta: { title: 'Dynamic Table' }  
+      },
+      {
+        path: 'drag-table',
+        component: () => import('@/views/table/drag-table'),
+        name: 'DragTable',
+        meta: { title: 'Drag Table' }
+      },
+      {
+        path: 'inline-edit-table',
+        component: () => import('@/views/table/inline-edit-table'),
+        name: 'InlineEditTable',
+        meta: { title: 'Inline Edit' }
+      },
+      {
+        path: 'complex-table',
+        component: () => import('@/views/table/complex-table'),
+        name: 'ComplexTable',
+        meta: { title: 'Complex Table' }
+      }
+    ]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
